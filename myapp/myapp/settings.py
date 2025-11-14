@@ -158,7 +158,7 @@ STATIC_ROOT = BASE_DIR / "static_root"
 STATIC_ROOT.mkdir(exist_ok=True, parents=True)
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'homigo_ui'
+    BASE_DIR / 'custom'
 ]
 
 STORAGES = {
