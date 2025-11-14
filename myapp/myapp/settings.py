@@ -50,6 +50,7 @@ if DEBUG:
 
 INSTALLED_APPS = [
     'homigo',
+    'commando',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
