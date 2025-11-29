@@ -72,7 +72,7 @@ if DEBUG:
 # Application definition
 
 INSTALLED_APPS = [
-    'homigo',
+    'homigo.apps.HomigoConfig',
     'commando',
     'django.contrib.admin',
     'django.contrib.auth',

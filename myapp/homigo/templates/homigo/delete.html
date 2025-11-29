@@ -1,0 +1,16 @@
+{% extends 'temp.html' %}
+
+{% block common %}
+
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+    <p>Are you sure to delete "{{obj}}"</p>
+    <a href="{{request.META.HTTP_REFER}}">Go Back</a>
+    <input type="submit" value="Confirm">
+
+</form>
+
+
+{% endblock common%}
