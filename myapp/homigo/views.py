@@ -1,18 +1,21 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.http import HttpResponse
+
 from django.conf import settings
+from django.db.models import Q
 from .forms import RoomForm
-from .models import Room 
+from .models import Room , Topic, Place
 
 PROJECT_NAME = getattr(settings, "PROJECT_NAME", "Unset Projet in Views")
 
 
 # Create your views here.
 def index(request):
-    rooms = Room.objects.all()
+    q = request.GET.get('q')
+    rooms = Room.objects.filter(Q(topic__name = q) | Q(place__area=q))
+    topics = Topic.objects.all()
+    places = Place.objects.all()
     context = {'rooms':rooms,
-            'project_name': PROJECT_NAME}
+            'project_name': PROJECT_NAME, 'topics':topics, 'places':places}
     return render(request, 'homigo/index.html', context)
 
 
@@ -59,8 +62,3 @@ def deleteRoom(request, pk):
 
     return render(request, 'homigo/delete.html', {'obj':room})
 
-
-
-
-def health(request):
-    return HttpResponse('ok')

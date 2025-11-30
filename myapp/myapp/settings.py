@@ -18,6 +18,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 REPO_DIR = BASE_DIR.parent
 TEMPLATES_DIR =  BASE_DIR / 'templates'
+HOMIGO_TEMPLATES_DIR = BASE_DIR / 'homigo/templates/homigo'
 TEMPLATES_DIR.mkdir(parents=True, exist_ok=True)
 
 PROJECT_NAME = config("PROJECT_NAME", default = 'Unspecified Project Name')
@@ -103,7 +104,7 @@ ROOT_URLCONF = 'myapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [TEMPLATES_DIR], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
